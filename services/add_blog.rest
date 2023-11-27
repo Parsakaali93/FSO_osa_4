@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+content-type: application/json
+
+{
+  "title": "dogblog",
+  "author": "Ernest Heming",
+  "url": "www.dogblog.com",
+  "likes": 42
+}
