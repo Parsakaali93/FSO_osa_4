@@ -2,8 +2,8 @@ POST http://localhost:3003/api/blogs
 content-type: application/json
 
 {
-  "title": "ratblog",
-  "author": "Kalevi Kouliainen",
-  "url": "www.ratblog.com",
-  "likes": 55
+  "title": "dfdfdffdf",
+  "author": "dfdfdfdf",
+  "url": "www.coolio.com",
+  "likes": 4444
 }
