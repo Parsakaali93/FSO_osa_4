@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "start": "node node_modules/cross-env/src/bin/cross-env.js NODE_ENV=production node index.js",
+    "dev": "node node_modules/cross-env/src/bin/cross-env.js NODE_ENV=development nodemon index.js",
+    "test": "node node_modules/cross-env/src/bin/cross-env.js NODE_ENV=test jest --verbose --runInBand"
   },
   "author": "Parsakaali",
   "license": "ISC",
@@ -16,6 +17,12 @@
     "mongoose": "^7.6.5"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

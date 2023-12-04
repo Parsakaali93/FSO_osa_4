@@ -12,8 +12,14 @@ blogsRouter.get('/', (request, response) => {
   
   // ROUTE TO POST A BLOG
   blogsRouter.post('/', (request, response) => {
-    const blog = new Blog(request.body)
-  
+    let blogData = request.body
+
+    if(!blogData.hasOwnProperty('likes')){
+      blogData = {...blogData, likes: 0}
+    }
+
+    const blog = new Blog(blogData)
+
     blog
       .save()
       .then(result => {
