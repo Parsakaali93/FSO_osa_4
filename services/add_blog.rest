@@ -2,8 +2,8 @@ POST http://localhost:3003/api/blogs
 content-type: application/json
 
 {
-  "title": "Biggy",
-  "author": "Diggy Biggy",
-  "url": "www.bbb.com",
-  "likes": 453
+  "title": "fdsd",
+  "author": "guy",
+  "url": "www.ghfnb.com",
+  "likes": 31
 }
