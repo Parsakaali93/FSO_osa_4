@@ -1,9 +1,10 @@
 POST http://localhost:3003/api/blogs
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NinR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1hdWtraXMiLCJpZCI6IjY1N2IwOGVmYmVhZDVhYWY5MTczMWVjNCIsImlhdCI6MTcwMjU3MzAxMn0.4bYw3WXVAS9cvOUnlz769Mgx8KYpiZNR4XI9P6HQ4fo
 
 {
-  "title": "fdsd",
-  "author": "guy",
-  "url": "www.ghfnb.com",
+  "title": "jhg",
+  "author": "t3",
+  "url": "www.ayth.com",
   "likes": 31
 }
