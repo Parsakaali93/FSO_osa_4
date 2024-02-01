@@ -50,6 +50,12 @@ blogsRouter.get('/', (request, response) => {
     }
   })
 
+  // COMMENT TEST
+  blogsRouter.post('/comments', async (request, response) => {
+    console.log("POSTING A COMMENT ON A BLOG")
+    response.status(204).end()
+  })
+
   // ROUTE TO POST A BLOG
   blogsRouter.post('/', async (request, response) => {
     console.log("POST A NEW BLOG")
@@ -83,6 +89,37 @@ blogsRouter.get('/', (request, response) => {
 
     }
   )
+
+    // POST A COMMENT ON A BLOG
+    blogsRouter.post('/:id/comments', async (request, response) => {
+        console.log("POSTING A COMMENT ON A BLOG")
+
+        try{
+          const blogId = request.params.id;
+          const { comment } = request.body;
+          console.log(request.body)
+
+          if (!comment) {
+            return response.status(400).json({ error: 'Comment content is required' });
+          }
+
+          let updatedBlog = await Blog.findOneAndUpdate({_id: blogId}, { $push: { comments: comment } }, {new:true})
+
+          if (!updatedBlog) {
+            return response.status(404).json({ error: 'Blog not found' });
+          }
+
+          response.json(updatedBlog)
+        }
+
+        catch(error){
+          console.error(error)
+          response.status(500).json({ error: 'Internal server error' })
+        }
+      }
+    )
+
+
 
     // ROUTE TO DELETE A BLOG
     blogsRouter.delete('/:id', async (request, response) => {

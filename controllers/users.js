@@ -43,8 +43,9 @@ usersRouter.post('/', async(request, response) => {
 // Route to get all blogs belonging to a single user
 usersRouter.get('/blogs', async (req, res) => {
     console.log("gets here")
-    console.log(req.body)
+    console.log(req.header)
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
+    
     if (!decodedToken.id) {
       return response.status(401).json({ error: 'token invalid' })  
     }
@@ -60,7 +61,9 @@ usersRouter.get('/blogs', async (req, res) => {
       // Access the blogs belonging to the user
       const userBlogs = user.blogs;
       res.json(userBlogs);
-    } catch (error) {
+    } 
+    
+    catch (error) {
       console.error('Error fetching user blogs:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
